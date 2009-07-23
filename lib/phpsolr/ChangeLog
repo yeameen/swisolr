@@ -1,0 +1,93 @@
+                            +--------------------+
+                            | php_solr ChangeLog |
+                            +--------------------+
+
+
+
+--- php_solr 0.4.1 - May 20 2009 ---
+
+* INCOMPATIBLE CHANGE: SolrFacetParameters has been renamed to
+  SolrSimpleFacets. Its constants were moved to SolrQuery.
+* Support for query faceting.
+* Support for per-field faceting parameters.
+* Support for the <delete /> command.
+* Added SolrQuery::setDefaultField()
+
+
+
+--- php_solr 0.4.0 - Apr 06 2009 ---
+
+* DEPENEDCIES CHANGED:
+  - Dropped HTTP_Client dependency.
+  - HTTP_Request2 and the curl extension are now required.
+* Support for facet fields.
+* Support for multiple filter queries.
+* New function: SolrConnection::getSolrSpecVersion().
+* Bugfix: SolrSimpleDocument accepted invalid field objects in its constructor.
+
+
+
+--- php_solr 0.3.2 - Mar 09 2009 ---
+
+* Support for filter queries.
+* Bugfix: SolrSearchResult::current() failed if the end of the array was
+  reached. This should not affect foreach loops, though.
+* Bugfix: SolrConnection::query() failed, if SolrQuery was not loaded.
+
+
+
+--- php_solr 0.3.1 - Jan 08 2009 ---
+
+* Bugfix: SolrDocument implementation in SolrHit did not work.
+* Iterator and Countable implementations added to SolrHit. This should improve
+  the "array look & feel" of SolrHit.
+
+
+
+--- php_solr 0.3.0 - Dec 17 2008 ---
+
+* INCOMPATIBLE CHANGE: The Solr class now provides an autoload mechanism. In
+  order to load a certain class, just include Solr.php and pass the name of the
+  class to Solr::autoload().
+* Solr is now an abstract class. All communication related code went into the
+  new class SolrConnection and Solr::connect() will return an instance of
+  SolrConnection.
+* Support for queries against the StandardRequestHandler. Please refer to the
+  API documentation for SolrConnection::query(), SolrQuery and SolrSearchResult
+  for more details.
+* Various methods now throw an InvalidArgumentException instead of a
+  SolrException if invalid parameters are given.
+* encoding="UTF-8" added to all XML commands.
+
+
+
+--- php_solr 0.2.2 - Dec 02 2008 ---
+
+* INCOMPATIBLE CHANGE: SolrDocument and SolrField are now interfaces. The fully
+  implemented classes have been renamed to SolrSimpleDocument and
+  SolrSimpleField.
+* Support for custom document and field implementations.
+* Added a date field class that formats unix timestamps in Solr's preferred
+  format.
+
+
+
+--- php_solr 0.2.1 - Nov 26 2008 ---
+
+* INCOMPATIBLE CHANGE: To establish a connection, Solr::connect() has to be
+  called instead of the constructor of the solr class. The constructor is
+  now private.
+* Solr::ping command added.
+* Fixed a bug with boosted fields. 
+* Added testcases for all features. Running them requires phpUnit 3.3 or later.
+* Added a script for building the API documentation with phpDocumentor 1.4.
+
+
+
+--- php_solr 0.2.0 - Nov 24 2008 ---
+
+* Initial release with basic features.
+
+
+
+$Id$
