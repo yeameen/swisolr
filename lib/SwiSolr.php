@@ -53,12 +53,12 @@ abstract class SwiSolr extends Solr {
      * @return SolrConnection
      */
     public static function connect ($url = null) {
-        self::autoload('SolrConnection');
+        self::autoload('SwiSolrConnection');
         if ($url == null) {
             self::autoload('SolrConfiguration');
             $url = Configuration::getServerUrl();
         }
-        return parent::connect($url);
+        return SwiSolrConnection::connect($url);
     }
 }
 ?>

@@ -55,7 +55,7 @@ class SolrConnection {
      *
      * @var SolrHttpClient
      */
-    private $httpClient = null;
+    protected $httpClient = null;
     
     /**
      * The specification version of the Solr server.
@@ -220,7 +220,6 @@ class SolrConnection {
 
         $xmlWriter->endElement(); // </add>
         $xmlWriter->endDocument();
-        
         $this->httpClient->sendRequest('/update', $xmlWriter->outputMemory());
     }
     

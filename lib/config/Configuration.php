@@ -9,9 +9,10 @@
 class Configuration {
     private static $defaultConfigArray = array(
         'server-address'        => 'http://127.0.0.1',
-        'server-port'           => '8080',
-        'server-directory'      => 'solr',
-        'search-field-default'  => 'content'
+        'server-port'           => '9080',
+        'server-directory'      => 'solr2',
+        'search-field-default'  => 'content',
+        'default-fields'        => array('service' => 'aawaj')
     );
 
 

@@ -5,19 +5,22 @@
     SwiSolr::autoload('SolrSimpleField');
 
 
-    $solr = SwiSolr::connect('http://127.0.0.1:8080/solr');
+//    $solr = SwiSolr::connect('http://127.0.0.1:8080/solr');
+    $solr = SwiSolr::connect('http://127.0.0.1:9080/solr1/');
 
     $doc = new SolrSimpleDocument(array(
       new SolrSimpleField('id', 'blog-6'),
-      new SolrSimpleField('service', 'somewhereinblog'),
       new SolrSimpleField('contentType', 'post'),
       new SolrSimpleField('dbId', '6'),
       new SolrSimpleField('title', 'this is'),
       new SolrSimpleField('content', 'that is')
     ));
-
+try {
     $solr->add($doc);
     $solr->commit();
+} catch (Exception $e) {
+    echo $e;
+}
 
     /*
      * delete the previous data. there is also another function named deleteByQuery.
@@ -28,7 +31,7 @@
     $solr->commit();
 
     /* now optimize the index */
-    $solr->optimize();
+//    $solr->optimize();
 
 
     echo "Successfully added the document";
