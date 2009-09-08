@@ -80,7 +80,7 @@ class ConfigurationTest extends PHPUnit_Framework_TestCase
     public function testGetFieldPrioritiesCount() {
         $fields = Configuration::getFieldPriorities();
         $this->assertNotNull($fields);
-        $this->assertEquals(2, sizeof($fields));
+        $this->assertEquals(3, sizeof($fields));
     }
 
     public function testGetFieldPrioritiesData() {
